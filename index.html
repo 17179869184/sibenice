@@ -75,7 +75,7 @@
                     w = w.filter(e => !e.includes(pismeno));
                 }
                 if (N == m - 1) {
-                    slovo = w[Math.floor(Math.random() % w.length)];
+                    slovo = w[Math.floor(Math.random() * w.length)];
                     document.getElementById(pismeno).style.backgroundColor = slovo.includes(pismeno) ? "green" : "red";
                     document.getElementById(pismeno).disabled = true;
                     document.getElementById("pokusy").innerHTML = "Pokusy: 1";
