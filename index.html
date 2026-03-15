@@ -82,7 +82,6 @@
                     document.getElementsByTagName("h2")[0].innerHTML = ([0,1,2,3,4].map(e => slovo[e] == pismeno ? pismeno : "_")+"").replaceAll(","," ");
                 }
                 if (N == m) {
-                    slovo = w[Math.floor(Math.random() % w.length)];
                     document.getElementById(pismeno).style.backgroundColor = slovo.includes(pismeno) ? "green" : "red";
                     document.getElementById(pismeno).disabled = true;
                     document.getElementById("pokusy").innerHTML = "Pokusy: 0";
