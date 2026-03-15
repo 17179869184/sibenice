@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>podvodnice</title>
+    </head>
+    <body>
+        <h1>Šibenice</h1>
+        <p id="pokusy">Pokusy: 10</p>
+        <h2>_ _ _ _ _</h2>
+        <button id="a" onclick="klik('a')">a</button>
+        <button id="á" onclick="klik('á')">á</button>
+        <button id="b" onclick="klik('b')">b</button>
+        <button id="c" onclick="klik('c')">c</button>
+        <button id="č" onclick="klik('č')">č</button>
+        <button id="d" onclick="klik('d')">d</button>
+        <button id="ď" onclick="klik('ď')">ď</button>
+        <button id="e" onclick="klik('e')">e</button>
+        <button id="é" onclick="klik('é')">é</button>
+        <button id="ě" onclick="klik('ě')">ě</button>
+        <button id="f" onclick="klik('f')">f</button>
+        <button id="g" onclick="klik('g')">g</button>
+        <button id="h" onclick="klik('h')">h</button>
+        <button id="i" onclick="klik('i')">i</button>
+        <button id="í" onclick="klik('í')">í</button>
+        <button id="j" onclick="klik('j')">j</button>
+        <button id="k" onclick="klik('k')">k</button>
+        <button id="l" onclick="klik('l')">l</button>
+        <button id="m" onclick="klik('m')">m</button>
+        <button id="n" onclick="klik('n')">n</button>
+        <button id="ň" onclick="klik('ň')">ň</button>
+        <button id="o" onclick="klik('o')">o</button>
+        <button id="ó" onclick="klik('ó')">ó</button>
+        <button id="p" onclick="klik('p')">p</button>
+        <button id="q" onclick="klik('q')">q</button>
+        <button id="r" onclick="klik('r')">r</button>
+        <button id="ř" onclick="klik('ř')">ř</button>
+        <button id="s" onclick="klik('s')">s</button>
+        <button id="š" onclick="klik('š')">š</button>
+        <button id="t" onclick="klik('t')">t</button>
+        <button id="ť" onclick="klik('ť')">ť</button>
+        <button id="u" onclick="klik('u')">u</button>
+        <button id="ú" onclick="klik('ú')">ú</button>
+        <button id="ů" onclick="klik('ů')">ů</button>
+        <button id="v" onclick="klik('v')">v</button>
+        <button id="w" onclick="klik('w')">w</button>
+        <button id="x" onclick="klik('x')">x</button>
+        <button id="y" onclick="klik('y')">y</button>
+        <button id="ý" onclick="klik('ý')">ý</button>
+        <button id="z" onclick="klik('z')">z</button>
+        <button id="ž" onclick="klik('ž')">ž</button>
+        <script>
+            var slovo;
+
+            w = [
+                "bzuky","waltz","dohoď","filip","kšeft","peklo","břehy",
+                "cítím","řízky","draci","pouze","maska","keřem","duben",
+                "bonus","tříšť","písní","řešíš","smršť","uchyť","banán",
+                "mokro","nejen","olovo","prvků","idiot","kutil","pivem",
+                "jizva","alarm","drbny","vidím","vymýt","zrudl","schnu",
+                "buďte","ďábla","farář","bádáš","myším","pájíš","čtvrt",
+                "facky","myčky","chyby","zblbl","pšššt"
+            ];
+
+            N = 0;
+            m = 10;
+
+            function klik(pismeno) {
+                N += 1;
+                if (N < m) {
+                    document.getElementById(pismeno).style.backgroundColor = "red";
+                    document.getElementById(pismeno).disabled = true;
+                    document.getElementById("pokusy").innerHTML = "Pokusy: " + (m - N);
+                    w = w.filter(e => !e.includes(pismeno));
+                }
+                if (N == m - 1) {
+                    slovo = w[Math.floor(Math.random() % w.length)];
+                    document.getElementById(pismeno).style.backgroundColor = slovo.includes(pismeno) ? "green" : "red";
+                    document.getElementById(pismeno).disabled = true;
+                    document.getElementById("pokusy").innerHTML = "Pokusy: 1";
+                    document.getElementsByTagName("h2")[0].innerHTML = ([0,1,2,3,4].map(e => slovo[e] == pismeno ? pismeno : "_")+"").replaceAll(","," ");
+                }
+                if (N == m) {
+                    slovo = w[Math.floor(Math.random() % w.length)];
+                    document.getElementById(pismeno).style.backgroundColor = slovo.includes(pismeno) ? "green" : "red";
+                    document.getElementById(pismeno).disabled = true;
+                    document.getElementById("pokusy").innerHTML = "Pokusy: 0";
+                    document.getElementsByTagName("h2")[0].innerHTML = w[Math.floor(Math.random() * w.length)];
+                    document.body.style.backgroundColor = "red";
+                }
+            }
+        </script>
+    </body>
+</html>
